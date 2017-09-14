@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170911021450) do
   enable_extension "plpgsql"
 
   create_table "channels", force: :cascade do |t|
-    t.string "owner_id"
+    t.string "user_id"
     t.string "current_song_uri"
     t.string "current_song"
     t.string "current_song_album"
@@ -27,11 +27,12 @@ ActiveRecord::Schema.define(version: 20170911021450) do
   end
 
   create_table "statuses", force: :cascade do |t|
+    t.integer "status_channel"
     t.string "current_song_uri"
     t.string "current_song"
-    t.string "current_album"
-    t.string "current_artist"
-    t.string "current_progress"
+    t.string "current_song_album"
+    t.string "current_song_artist"
+    t.string "current_song_progress"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

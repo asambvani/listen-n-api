@@ -1,11 +1,9 @@
 class Api::V1::StatusesController < ApplicationController
   status_params = {status_channel: 1}
-  current_user = User.find(1)
-  current_user.current_channel_id = 1
-  current_user.save
-  byebug
+
   def create
-    status = current_user.current_channel.statuses.build(status_params)
+    current_user = User.find(1)
+    status = current_user.channel.statuses.build(params[:status])
     if status.save
       byebug
       ActionCable.server.broadcast 'user_channel',

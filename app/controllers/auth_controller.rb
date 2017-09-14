@@ -31,10 +31,9 @@ class AuthController < ApplicationController
     @user.spotify_profile_url = spotify_profile_url
     @user.authorization_code = access_token
     @user.save
-    # @channel = Channel.find_or_create_by(owner_id: @user.id)
-    # @channel.owner_id = @user.id
-    # @channel.save
-    # render json: @channel
+    @channel = Channel.find_or_create_by(user_id: @user.id)
+    @channel.user = @user
+    @channel.save
     redirect_to "http://localhost:3001?user=#{@user.id}"
   end
 

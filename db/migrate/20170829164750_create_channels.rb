@@ -1,7 +1,7 @@
 class CreateChannels < ActiveRecord::Migration[5.1]
   def change
     create_table :channels do |t|
-      t.string :owner
+      t.string :user_id
       t.string :current_song_uri
       t.string :current_song
       t.string :current_song_album
