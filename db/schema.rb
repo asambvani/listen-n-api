@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 20170911021450) do
   end
 
   create_table "statuses", force: :cascade do |t|
-    t.integer "status_channel"
+    t.integer "channel_id"
     t.string "current_song_uri"
     t.string "current_song"
     t.string "current_song_album"
+    t.string "thumbnail_url"
     t.string "current_song_artist"
     t.string "current_song_progress"
     t.datetime "created_at", null: false
